@@ -1,11 +1,1276 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MLBB LEGEND STORE - เว็บขายไอดีและตัวละคร Mobile Legends สกินแรร์ อันดับ 1</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              gold: '#F5A623',
+              goldLight: '#FFD166',
+              dark: '#0B0E14',
+              card: '#141923',
+              cardHover: '#1C2332',
+              border: '#263145',
+            }
+          },
+          fontFamily: {
+            sans: ['Kanit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Font: Kanit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      background-color: #0B0E14;
+      color: #E2E8F0;
+    }
+    
+    /* Skin Tier Tag Badges (MLBB in-game styling) */
+    .tier-legend {
+      background: linear-gradient(135deg, #1A0B2E 0%, #7928CA 50%, #FF0080 100%);
+      border: 1px solid #D946EF;
+      box-shadow: 0 0 12px rgba(217, 70, 239, 0.45);
+    }
+    .tier-kof {
+      background: linear-gradient(135deg, #3B0000 0%, #DC2626 50%, #F59E0B 100%);
+      border: 1px solid #EF4444;
+      box-shadow: 0 0 12px rgba(239, 68, 68, 0.5);
+    }
+    .tier-collector {
+      background: linear-gradient(135deg, #1C1500 0%, #D97706 50%, #FDE047 100%);
+      border: 1px solid #FBBF24;
+      color: #000;
+      box-shadow: 0 0 12px rgba(251, 191, 36, 0.45);
+    }
+    .tier-prime {
+      background: linear-gradient(135deg, #0F172A 0%, #EAB308 50%, #FEF08A 100%);
+      border: 1px solid #FACC15;
+      color: #000;
+      box-shadow: 0 0 12px rgba(250, 204, 21, 0.5);
+    }
+    .tier-aspirants {
+      background: linear-gradient(135deg, #09203F 0%, #06B6D4 50%, #EC4899 100%);
+      border: 1px solid #22D3EE;
+      box-shadow: 0 0 12px rgba(34, 211, 238, 0.45);
+    }
+    .tier-1111 {
+      background: linear-gradient(135deg, #1E0505 0%, #B91C1C 50%, #F43F5E 100%);
+      border: 1px solid #FB7185;
+      box-shadow: 0 0 12px rgba(251, 113, 133, 0.45);
+    }
+
+    .neon-border:hover {
+      box-shadow: 0 0 22px rgba(245, 166, 35, 0.35);
+      border-color: #F5A623;
+    }
+    
+    /* Rank Badges */
+    .badge-immortal { background: linear-gradient(135deg, #B91C1C, #F59E0B); }
+    .badge-glory { background: linear-gradient(135deg, #BE185D, #F43F5E); }
+    .badge-mythic { background: linear-gradient(135deg, #6B21A8, #A855F7); }
+    .badge-legend { background: linear-gradient(135deg, #1D4ED8, #3B82F6); }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0B0E14; }
+    ::-webkit-scrollbar-thumb { background: #263145; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #F5A623; }
+  </style>
 </head>
-<body>
-    <h1>hello</h1>
+<body class="min-h-screen flex flex-col bg-[#0B0E14]">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-amber-600 via-yellow-500 to-amber-600 text-black text-xs md:text-sm font-semibold py-1.5 px-4 text-center tracking-wide flex items-center justify-center gap-2 shadow-lg">
+    <i class="fa-solid fa-crown"></i>
+    <span>รวมไอดี MLBB สกินแรร์ Legend, KOF, Collector, Prime M4 | เมลสะอาด เปลี่ยนรหัสได้ทันที 100%</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-40 bg-[#0F141E]/95 backdrop-blur-md border-b border-[#222B3D] px-4 lg:px-8 py-3.5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-yellow-300 flex items-center justify-center text-black font-extrabold text-xl shadow-lg shadow-amber-500/25 group-hover:scale-105 transition">
+          <i class="fa-solid fa-gem"></i>
+        </div>
+        <div>
+          <span class="text-xl md:text-2xl font-black tracking-tight text-white flex items-center gap-1.5">
+            MLBB <span class="text-amber-400">HERO SHOP</span>
+          </span>
+          <p class="text-[10px] text-gray-400 -mt-1 tracking-wider uppercase font-semibold">Rare Skins & Accounts</p>
+        </div>
+      </a>
+
+      <!-- Navigation Links (Desktop) -->
+      <div class="hidden md:flex items-center gap-7 text-sm font-medium text-gray-300">
+        <a href="#store" class="text-amber-400 hover:text-amber-300 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-gamepad"></i> คลังไอดีตัวละคร
+        </a>
+        <a href="#guarantee" class="hover:text-amber-400 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-shield-halved"></i> รับประกันไอดี 60 วัน
+        </a>
+        <a href="#how-to-buy" class="hover:text-amber-400 transition flex items-center gap-1.5">
+          <i class="fa-solid fa-circle-question"></i> วิธีสั่งซื้อ
+        </a>
+        <a href="#contact" class="hover:text-amber-400 transition flex items-center gap-1.5">
+          <i class="fa-brands fa-line text-emerald-400"></i> ติดต่อแอดมิน
+        </a>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <button onclick="openSellModal()" class="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-amber-500/40 text-amber-400 hover:bg-amber-500/10 text-sm font-medium transition">
+          <i class="fa-solid fa-plus"></i> ฝากขายไอดี
+        </button>
+        <button onclick="scrollToStore()" class="bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black font-bold text-sm px-4 py-2 rounded-lg shadow-md shadow-amber-500/20 transition transform active:scale-95 flex items-center gap-1.5">
+          <i class="fa-solid fa-fire text-black"></i> สกินแรร์มาใหม่
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-10 pb-14 px-4 lg:px-8 border-b border-[#1E2638] bg-gradient-to-b from-[#141B29] via-[#0B0E14] to-[#0B0E14]">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(245,166,35,0.08),transparent_50%)]"></div>
+    <div class="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <div class="lg:col-span-7 space-y-4 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          มีไอดีสกินแรร์พร้อมส่งมอบมากกว่า 80+ ไอดี
+        </div>
+        
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight">
+          ซื้อขายไอดี <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">Mobile Legends</span><br class="hidden sm:inline"> สกินแรร์แท้ เมลสะอาด 100%
+        </h1>
+        
+        <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto lg:mx-0">
+          รวมฮีโร่ตัวตึง สกินระดับตำนาน <span class="text-fuchsia-400 font-semibold">Legend</span>, <span class="text-red-400 font-semibold">KOF</span>, <span class="text-amber-300 font-semibold">Collector</span>, <span class="text-cyan-300 font-semibold">Aspirants</span> และ <span class="text-yellow-400 font-semibold">Prime M4</span> ระบบส่งรหัสผ่านทันที ปลอดภัยมีประกันดึงคืน
+        </p>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-3 pt-2 max-w-md mx-auto lg:mx-0">
+          <div class="bg-[#151A24] border border-[#232C3D] rounded-xl p-3 text-center">
+            <div class="text-xl sm:text-2xl font-black text-amber-400">1,500+</div>
+            <div class="text-[11px] sm:text-xs text-gray-400">ไอดีส่งมอบสำเร็จ</div>
+          </div>
+          <div class="bg-[#151A24] border border-[#232C3D] rounded-xl p-3 text-center">
+            <div class="text-xl sm:text-2xl font-black text-emerald-400">60 วัน</div>
+            <div class="text-[11px] sm:text-xs text-gray-400">รับประกันดึงคืน 100%</div>
+          </div>
+          <div class="bg-[#151A24] border border-[#232C3D] rounded-xl p-3 text-center">
+            <div class="text-xl sm:text-2xl font-black text-blue-400">อัตโนมัติ</div>
+            <div class="text-[11px] sm:text-xs text-gray-400">ส่งรหัสผ่าน 24 ชม.</div>
+          </div>
+        </div>
+
+        <!-- Hero CTA -->
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+          <a href="#store" class="px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black font-extrabold text-sm sm:text-base shadow-lg shadow-amber-500/25 transition flex items-center gap-2">
+            <i class="fa-solid fa-gamepad"></i> ค้นหาตัวละคร & สกินที่อยากได้
+          </a>
+          <button onclick="setSkinFilter('Legend')" class="px-5 py-3 rounded-xl bg-[#1A202C] hover:bg-[#232B3B] text-gray-200 font-semibold text-sm border border-[#2D3748] transition flex items-center gap-2">
+            <i class="fa-solid fa-crown text-purple-400"></i> ดูเฉพาะสกิน Legend
+          </button>
+        </div>
+      </div>
+
+      <!-- Spotlight Hero Card: Chou IORI YAGAMI -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div class="w-full max-w-md bg-gradient-to-b from-[#1C2333] to-[#121722] rounded-2xl border-2 border-red-500/60 p-4 shadow-2xl relative overflow-hidden group">
+          <div class="absolute top-3 right-3 tier-kof text-white text-[11px] font-black px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5 z-10">
+            <i class="fa-solid fa-fire"></i> KOF COLLAB
+          </div>
+
+          <!-- Splash Art Preview -->
+          <div class="relative h-56 rounded-xl overflow-hidden bg-gray-950 border border-[#2C374D]">
+            <img src="images/chou_iori.jpg" 
+                 alt="Chou Iori Yagami" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500 brightness-95">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0B0E14] via-transparent to-black/20"></div>
+            
+            <div class="absolute bottom-2 left-2 flex flex-wrap items-center gap-1.5">
+              <span class="badge-immortal text-white text-[11px] font-bold px-2 py-0.5 rounded shadow">
+                <i class="fa-solid fa-shield-halved mr-1"></i> Mythic Immortal 150★
+              </span>
+              <span class="bg-black/70 backdrop-blur-md text-emerald-400 text-[11px] font-mono px-2 py-0.5 rounded border border-emerald-500/30">
+                WR 71.2%
+              </span>
+            </div>
+          </div>
+
+          <div class="mt-3.5 space-y-2.5">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-red-400 font-mono font-bold">#ML-9901 | FIGHTER</span>
+                <span class="text-xs text-emerald-400 font-semibold"><i class="fa-solid fa-check mr-1"></i>เมลสะอาด</span>
+              </div>
+              <h3 class="text-xl font-black text-white group-hover:text-amber-400 transition flex items-center gap-2 mt-0.5">
+                Chou - <span class="text-red-400">IORI YAGAMI</span>
+              </h3>
+              <p class="text-xs text-gray-400">พ่วงสกิน Gusion Legend, Granger Collector และ Ling Collector</p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 py-2 text-center bg-[#0F141E] rounded-lg border border-[#222B3D] text-xs">
+              <div>
+                <span class="text-gray-400 block text-[10px]">ฮีโร่ครบ</span>
+                <span class="font-bold text-white">128 ตัว</span>
+              </div>
+              <div>
+                <span class="text-gray-400 block text-[10px]">สกินทั้งหมด</span>
+                <span class="font-bold text-amber-400">340+ สกิน</span>
+              </div>
+              <div>
+                <span class="text-gray-400 block text-[10px]">ตราสัญลักษณ์</span>
+                <span class="font-bold text-cyan-400">All Max 60</span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-1">
+              <div>
+                <span class="text-xs text-gray-500 line-through">฿5,900</span>
+                <div class="text-2xl font-black text-amber-400">฿3,890</div>
+              </div>
+              <button onclick="openDetailModalById('ML-9901')" class="px-5 py-2.5 bg-gradient-to-r from-red-600 to-amber-500 hover:from-red-700 hover:to-amber-600 text-white font-extrabold text-sm rounded-xl shadow-lg transition transform active:scale-95">
+                ดูสกิน & สั่งซื้อ
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Store Section -->
+  <main id="store" class="max-w-7xl mx-auto px-4 lg:px-8 py-10 flex-1 w-full space-y-6">
+    
+    <!-- Filter & Search Controls Header -->
+    <div class="bg-[#141A24] border border-[#232C3D] rounded-2xl p-4 lg:p-6 shadow-xl space-y-4">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-extrabold text-white flex items-center gap-2">
+            <i class="fa-solid fa-shield-cat text-amber-400"></i> เลือกซื้อตามตัวละคร & สกินแรร์ MLBB
+          </h2>
+          <p class="text-xs text-gray-400">เลือกดูไอดีตามระดับความแรร์ของสกิน: Legend, KOF, Collector, Prime M4 หรือค้นหาชื่อฮีโร่</p>
+        </div>
+
+        <!-- Search Input -->
+        <div class="w-full md:w-80 relative">
+          <input type="text" id="searchInput" oninput="applyFilters()" placeholder="ค้นหาชื่อฮีโร่, สกิน (เช่น Chou, Gusion, Franco)..." class="w-full bg-[#0B0E14] border border-[#2B3548] rounded-xl px-4 py-2.5 pl-10 text-sm text-gray-200 focus:outline-none focus:border-amber-400 transition placeholder-gray-500">
+          <i class="fa-solid fa-search absolute left-3.5 top-3.5 text-gray-500 text-sm"></i>
+        </div>
+      </div>
+
+      <!-- Skin Tier Filters (Main Highlight) -->
+      <div class="pt-3 border-t border-[#222B3D] space-y-2.5">
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full text-xs">
+          <span class="text-gray-400 font-semibold whitespace-nowrap mr-2">ระดับสกินแรร์:</span>
+          <button onclick="setSkinFilter('all', this)" class="skin-tier-btn px-3 py-1.5 rounded-lg bg-amber-500 text-black font-bold transition">
+            ทั้งหมด
+          </button>
+          <button onclick="setSkinFilter('Legend', this)" class="skin-tier-btn px-3 py-1.5 rounded-lg bg-[#1E2638] text-fuchsia-300 hover:text-white border border-fuchsia-500/30 transition flex items-center gap-1">
+            <i class="fa-solid fa-crown text-[10px]"></i> Legend
+          </button>
+          <button onclick="setSkinFilter('KOF', this)" class="skin-tier-btn px-3 py-1.5 rounded-lg bg-[#1E2638] text-red-400 hover:text-white border border-red-500/30 transition flex items-center gap-1">
+            <i class="fa-solid fa-fire text-[10px]"></i> KOF Series
+          </button>
+          <button onclick="setSkinFilter('Collector', this)" class="skin-tier-btn px-3 py-1.5 rounded-lg bg-[#1E2638] text-amber-300 hover:text-white border border-amber-500/30 transition flex items-center gap-1">
+            <i class="fa-solid fa-gem text-[10px]"></i> Collector
+          </button>
+          <button onclick="setSkinFilter('Prime', this)" class="skin-tier-btn px-3 py-1.5 rounded-lg bg-[#1E2638] text-yellow-300 hover:text-white border border-yellow-500/30 transition flex items-center gap-1">
+            <i class="fa-solid fa-trophy text-[10px]"></i> Prime M-Series
+          </button>
+          <button onclick="setSkinFilter('Aspirants', this)" class="skin-tier-btn px-3 py-1.5 rounded-lg bg-[#1E2638] text-cyan-300 hover:text-white border border-cyan-500/30 transition flex items-center gap-1">
+            <i class="fa-solid fa-sparkles text-[10px]"></i> Aspirants
+          </button>
+          <button onclick="setSkinFilter('11.11', this)" class="skin-tier-btn px-3 py-1.5 rounded-lg bg-[#1E2638] text-rose-300 hover:text-white border border-rose-500/30 transition flex items-center gap-1">
+            <i class="fa-solid fa-bolt text-[10px]"></i> 11.11 Exclusive
+          </button>
+        </div>
+
+        <!-- Secondary Filters: Hero Role & Sorting -->
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-1 text-xs">
+          
+          <!-- Role Filters -->
+          <div class="flex items-center gap-1.5 overflow-x-auto text-[11px]">
+            <span class="text-gray-400 font-medium mr-1">สายฮีโร่:</span>
+            <button onclick="setRoleFilter('all', this)" class="role-btn px-2.5 py-1 rounded bg-[#1F2737] text-amber-400 font-semibold">ทั้งหมด</button>
+            <button onclick="setRoleFilter('Fighter', this)" class="role-btn px-2.5 py-1 rounded bg-[#10141D] text-gray-400 hover:text-white">Fighter</button>
+            <button onclick="setRoleFilter('Assassin', this)" class="role-btn px-2.5 py-1 rounded bg-[#10141D] text-gray-400 hover:text-white">Assassin</button>
+            <button onclick="setRoleFilter('Marksman', this)" class="role-btn px-2.5 py-1 rounded bg-[#10141D] text-gray-400 hover:text-white">Marksman</button>
+            <button onclick="setRoleFilter('Mage', this)" class="role-btn px-2.5 py-1 rounded bg-[#10141D] text-gray-400 hover:text-white">Mage</button>
+            <button onclick="setRoleFilter('Tank', this)" class="role-btn px-2.5 py-1 rounded bg-[#10141D] text-gray-400 hover:text-white">Tank / Support</button>
+          </div>
+
+          <!-- Sort Select -->
+          <div class="flex items-center gap-2 ml-auto">
+            <span class="text-gray-400 font-medium">เรียงตาม:</span>
+            <select id="sortSelect" onchange="applyFilters()" class="bg-[#0B0E14] border border-[#2A3447] text-gray-300 rounded-lg px-2.5 py-1.5 focus:outline-none focus:border-amber-400 text-xs">
+              <option value="featured">แนะนำยอดนิยม</option>
+              <option value="price-asc">ราคา: ต่ำไปสูง</option>
+              <option value="price-desc">ราคา: สูงไปต่ำ</option>
+              <option value="skins-desc">จำนวนสกินเยอะสุด</option>
+            </select>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Product Grid of MLBB Characters -->
+    <div id="accountsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Cards dynamically rendered via JavaScript -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center py-16 space-y-3 bg-[#141A24] rounded-2xl border border-[#232C3D]">
+      <i class="fa-solid fa-ghost text-4xl text-gray-600"></i>
+      <h3 class="text-lg font-bold text-gray-300">ไม่พบตัวละครหรือสกินที่ตรงกับการค้นหา</h3>
+      <p class="text-sm text-gray-500">ลองเลือกระดับสกิน หรือค้นหาชื่อฮีโร่อื่นๆ ดูครับ</p>
+      <button onclick="resetFilters()" class="px-4 py-2 rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/40 text-xs font-semibold hover:bg-amber-500/30 transition">
+        รีเซ็ตตัวกรองทั้งหมด
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Trust & Guarantees Section -->
+  <section id="guarantee" class="bg-[#0E131C] border-t border-b border-[#1E2638] py-14 px-4 lg:px-8">
+    <div class="max-w-7xl mx-auto space-y-10">
+      
+      <div class="text-center max-w-2xl mx-auto space-y-2">
+        <h2 class="text-2xl sm:text-3xl font-black text-white">มาตรฐานความปลอดภัยของไอดีเกม</h2>
+        <p class="text-sm text-gray-400">ทุกไอดีผ่านการตรวจสอบความปลอดภัยของบัญชี Moonton ก่อนนำมาวางจำหน่าย</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        
+        <div class="bg-[#151A24] border border-[#222B3D] rounded-xl p-5 space-y-3 hover:border-amber-500/40 transition">
+          <div class="w-12 h-12 rounded-lg bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-shield-virus"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">เมล Moonton สะอาด 100%</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            สามารถเปลี่ยนเป็นอีเมลส่วนตัวของคุณได้ทันที ไม่มีติดเบอร์โทรศัพท์ และไม่มีพันธะเชื่อมต่อกับบุคคลอื่น
+          </p>
+        </div>
+
+        <div class="bg-[#151A24] border border-[#222B3D] rounded-xl p-5 space-y-3 hover:border-emerald-500/40 transition">
+          <div class="w-12 h-12 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">ส่งรหัสผ่านทันที</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            เมื่อระบบตรวจสอบการชำระเงินเสร็จสิ้น จะแสดงบัญชีผู้ใช้และรหัสผ่านบนหน้าจอทันที ไม่ต้องรอนาน
+          </p>
+        </div>
+
+        <div class="bg-[#151A24] border border-[#222B3D] rounded-xl p-5 space-y-3 hover:border-purple-500/40 transition">
+          <div class="w-12 h-12 rounded-lg bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-handshake-angle"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">รับประกันดึงคืน 60 วัน</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            หากไอดีเกิดปัญหาถูกดึงคืนในระยะรับประกัน ทางร้านยินดีเปลี่ยนไอดีใหม่ให้ทันที หรือคืนเงิน 100%
+          </p>
+        </div>
+
+        <div class="bg-[#151A24] border border-[#222B3D] rounded-xl p-5 space-y-3 hover:border-blue-500/40 transition">
+          <div class="w-12 h-12 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <h3 class="font-bold text-white text-base">แอดมินช่วยสอนเปลี่ยนเมล</h3>
+          <p class="text-xs text-gray-400 leading-relaxed">
+            มีคู่มือและแอดมินคอยให้คำแนะนำขั้นตอนการเปลี่ยนรหัสผ่านและผูกอีเมลใหม่อย่างปลอดภัยจนเสร็จสมบูรณ์
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- How to Buy Section -->
+  <section id="how-to-buy" class="py-14 px-4 lg:px-8 max-w-7xl mx-auto space-y-8">
+    <div class="text-center max-w-xl mx-auto space-y-2">
+      <span class="text-amber-400 text-xs font-semibold uppercase tracking-wider">สะดวกรวดเร็วใน 3 ขั้นตอน</span>
+      <h2 class="text-2xl sm:text-3xl font-black text-white">วิธีการสั่งซื้อไอดี MLBB</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <div class="bg-[#141A24] border border-[#222B3D] rounded-2xl p-6 text-center space-y-3 relative">
+        <div class="w-10 h-10 rounded-full bg-amber-500 text-black font-extrabold flex items-center justify-center mx-auto text-lg shadow-lg">1</div>
+        <h3 class="font-bold text-white text-lg">เลือกตัวละคร & สกินที่ชอบ</h3>
+        <p class="text-xs text-gray-400">ตรวจสอบแรงค์, จำนวนฮีโร่, สกินทั้งหมด และสกรีนช็อตในหน้าต่างรายละเอียด</p>
+      </div>
+
+      <div class="bg-[#141A24] border border-[#222B3D] rounded-2xl p-6 text-center space-y-3 relative">
+        <div class="w-10 h-10 rounded-full bg-amber-500 text-black font-extrabold flex items-center justify-center mx-auto text-lg shadow-lg">2</div>
+        <h3 class="font-bold text-white text-lg">สแกนชำระเงินผ่าน PromptPay</h3>
+        <p class="text-xs text-gray-400">ระบบจะสร้าง QR Code พร้อมเพย์ตามยอดเงิน สามารถสแกนชำระได้ผ่านทุกแอปธนาคาร</p>
+      </div>
+
+      <div class="bg-[#141A24] border border-[#222B3D] rounded-2xl p-6 text-center space-y-3 relative">
+        <div class="w-10 h-10 rounded-full bg-amber-500 text-black font-extrabold flex items-center justify-center mx-auto text-lg shadow-lg">3</div>
+        <h3 class="font-bold text-white text-lg">รับข้อมูลล็อกอิน & นำไปเล่นได้ทันที</h3>
+        <p class="text-xs text-gray-400">ระบบแสดง Username / Password และส่งมอบข้อมูลพร้อมคำแนะนำการเปลี่ยนรหัสผ่าน</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-[#0A0D13] border-t border-[#1C2333] pt-12 pb-8 px-4 lg:px-8 text-gray-400 text-xs">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      
+      <div class="space-y-3 md:col-span-2">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center text-black font-black text-base">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <span class="text-lg font-bold text-white">MLBB LEGEND STORE</span>
+        </div>
+        <p class="max-w-md text-gray-400 leading-relaxed text-xs">
+          ร้านจำหน่ายและตลาดกลางไอดีเกม Mobile Legends: Bang Bang ปลอดภัย รวดเร็ว ตรวจสอบได้ทุกไอดี มีประกันดึงคืนทุกรายการ
+        </p>
+        <p class="text-[11px] text-gray-500">
+          * ข้อสงวนสิทธิ์: เว็บไซต์นี้จัดทำเพื่อการค้าไอดีเกม มิได้มีส่วนเกี่ยวข้องอย่างเป็นทางการกับบริษัท Moonton หรือผู้พัฒนาเกม Mobile Legends
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <h4 class="text-sm font-semibold text-white">ช่องทางติดต่อเรา</h4>
+        <ul class="space-y-2 text-xs">
+          <li>
+            <a href="https://line.me" target="_blank" class="hover:text-amber-400 transition flex items-center gap-2">
+              <i class="fa-brands fa-line text-emerald-400 text-base"></i> Line Official: @mlbbstore
+            </a>
+          </li>
+          <li>
+            <a href="https://facebook.com" target="_blank" class="hover:text-amber-400 transition flex items-center gap-2">
+              <i class="fa-brands fa-facebook text-blue-500 text-base"></i> Facebook: MLBB Store Thailand
+            </a>
+          </li>
+          <li>
+            <a href="https://discord.com" target="_blank" class="hover:text-amber-400 transition flex items-center gap-2">
+              <i class="fa-brands fa-discord text-indigo-400 text-base"></i> Discord Server ประจำร้าน
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="space-y-2">
+        <h4 class="text-sm font-semibold text-white">เวลาทำการ</h4>
+        <p class="text-xs text-gray-400">ระบบสั่งซื้ออัตโนมัติ: ทำงานตลอด 24 ชม.</p>
+        <p class="text-xs text-gray-400">ทีมงานแอดมิน: 09:00 - 02:00 น. ทุกวัน</p>
+        <div class="pt-2">
+          <span class="inline-block bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-2.5 py-1 rounded text-[11px] font-medium">
+            <i class="fa-solid fa-circle text-[8px] mr-1"></i> เซิร์ฟเวอร์และระบบจัดส่งทำงานปกติ
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto pt-6 border-t border-[#18202F] text-center text-gray-500 text-[11px]">
+      © 2026 MLBB STORE Thailand. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Modal: Account Detail & Gallery -->
+  <div id="detailModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="bg-[#151A24] border border-[#2A3447] rounded-2xl w-full max-w-3xl overflow-hidden shadow-2xl my-8 relative animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Close Button -->
+      <button onclick="closeDetailModal()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/60 hover:bg-black text-gray-300 hover:text-white flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-base"></i>
+      </button>
+
+      <!-- Modal Content Area -->
+      <div id="modalBody">
+        <!-- Rendered by JS -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal: Checkout & Payment (PromptPay QR) -->
+  <div id="checkoutModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="bg-[#151A24] border border-amber-500/40 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl my-8 relative">
+      
+      <!-- Close Button -->
+      <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-black/60 hover:bg-black text-gray-300 hover:text-white flex items-center justify-center transition">
+        <i class="fa-solid fa-xmark text-base"></i>
+      </button>
+
+      <div class="p-6 space-y-5">
+        
+        <div class="text-center space-y-1">
+          <div class="w-12 h-12 rounded-full bg-amber-500/10 text-amber-400 mx-auto flex items-center justify-center text-xl">
+            <i class="fa-solid fa-qrcode"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">ชำระเงินผ่าน PromptPay</h3>
+          <p class="text-xs text-gray-400" id="checkoutCodeText">รหัสสินค้า: #ML-xxxx</p>
+        </div>
+
+        <!-- Price display -->
+        <div class="bg-[#0B0E14] border border-[#232C3D] rounded-xl p-3 text-center">
+          <span class="text-xs text-gray-400 block">ยอดชำระสุทธิ</span>
+          <span class="text-2xl font-black text-amber-400" id="checkoutPriceText">฿0</span>
+        </div>
+
+        <!-- Simulated PromptPay QR -->
+        <div class="bg-white p-4 rounded-xl max-w-[220px] mx-auto text-center space-y-2 shadow-lg">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=PROMPTPAY_MLBB_DEMO_STORE" alt="PromptPay QR Code" class="w-full h-auto mx-auto rounded">
+          <div class="text-[10px] text-gray-600 font-bold uppercase tracking-wider">
+            พร้อมเพย์ (PromptPay QR)
+          </div>
+        </div>
+
+        <div class="space-y-2 text-xs text-gray-400">
+          <div class="flex justify-between">
+            <span>ชื่อบัญชี:</span>
+            <span class="text-white font-medium">บจก. เอ็มแอลบีบี สโตร์ (ไทยแลนด์)</span>
+          </div>
+          <div class="flex justify-between">
+            <span>สถานะระบบ:</span>
+            <span class="text-emerald-400 font-medium"><i class="fa-solid fa-bolt mr-1"></i>ส่งมอบรหัสผ่านทันทีหลังตรวจสลิป</span>
+          </div>
+        </div>
+
+        <!-- Confirm Simulation Button -->
+        <div class="pt-2 space-y-2">
+          <button onclick="simulateSuccessfulPayment()" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold text-sm shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-circle-check"></i> จำลองการชำระเงินสำเร็จ (คลิกเพื่อทดสอบ)
+          </button>
+          <p class="text-[10px] text-center text-gray-500">นี่คือระบบตัวอย่าง คุณสามารถทดสอบกดชำระเงินเพื่อดูหน้ารับรหัสไอดีได้ทันที</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal: Account Delivery (Success Receipt) -->
+  <div id="successModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="bg-[#151A24] border-2 border-emerald-500/50 rounded-2xl w-full max-w-md overflow-hidden shadow-2xl my-8 relative">
+      
+      <div class="p-6 space-y-4">
+        
+        <div class="text-center space-y-1">
+          <div class="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center text-2xl border border-emerald-500/40 animate-bounce">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">ชำระเงินสำเร็จแล้ว!</h3>
+          <p class="text-xs text-gray-400">ระบบได้ทำการส่งมอบข้อมูลล็อกอินไอดีของคุณเรียบร้อยแล้ว</p>
+        </div>
+
+        <!-- Account Credentials Box -->
+        <div class="bg-[#0B0E14] border border-[#2B3548] rounded-xl p-4 space-y-3">
+          <div class="text-xs text-amber-400 font-semibold uppercase flex items-center justify-between">
+            <span><i class="fa-solid fa-key mr-1"></i> ข้อมูลเข้าสู่ระบบ (Moonton)</span>
+            <span class="text-emerald-400 text-[10px]">ประกัน 60 วัน</span>
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div>
+              <span class="text-gray-400 block text-[11px]">อีเมล / Moonton Account:</span>
+              <div class="flex items-center justify-between bg-[#151A24] px-3 py-2 rounded border border-[#232C3D] mt-0.5">
+                <span id="credEmail" class="font-mono text-white select-all">mlbb.buyer_demo99@gmail.com</span>
+                <button onclick="copyText('credEmail')" class="text-gray-400 hover:text-amber-400 transition text-xs">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <span class="text-gray-400 block text-[11px]">รหัสผ่านชั่วคราว:</span>
+              <div class="flex items-center justify-between bg-[#151A24] px-3 py-2 rounded border border-[#232C3D] mt-0.5">
+                <span id="credPass" class="font-mono text-emerald-400 font-bold select-all">MLBB#Secure2026!</span>
+                <button onclick="copyText('credPass')" class="text-gray-400 hover:text-amber-400 transition text-xs">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-2.5 rounded bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-300 space-y-1">
+            <p class="font-semibold"><i class="fa-solid fa-triangle-exclamation mr-1"></i> คำแนะนำสำคัญ:</p>
+            <p>1. กรุณาล็อกอินเข้าเกม และเปลี่ยนรหัสผ่านทันที</p>
+            <p>2. เชื่อมต่ออีเมลสำรองของท่านในระบบ Moonton Account</p>
+          </div>
+        </div>
+
+        <button onclick="closeSuccessModal()" class="w-full py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-black font-bold text-sm transition">
+          เข้าใจแล้ว / ปิดหน้าต่าง
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal: Sell Account (ฝากขายไอดี) -->
+  <div id="sellModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+    <div class="bg-[#151A24] border border-[#2A3447] rounded-2xl w-full max-w-lg p-6 space-y-4 relative">
+      <button onclick="closeSellModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/60 text-gray-300 hover:text-white flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="space-y-1">
+        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-tag text-amber-400"></i> ฝากขายไอดี MLBB
+        </h3>
+        <p class="text-xs text-gray-400">กรอกข้อมูลเบื้องต้นเพื่อประเมินราคาและลงขายในระบบ</p>
+      </div>
+
+      <form onsubmit="handleSellSubmit(event)" class="space-y-3 text-xs">
+        <div>
+          <label class="block text-gray-300 mb-1">แรงค์ปัจจุบันในเกม</label>
+          <select class="w-full bg-[#0B0E14] border border-[#2A3447] rounded-lg p-2.5 text-gray-200">
+            <option>Mythic Immortal (100+ ดาว)</option>
+            <option>Mythical Glory (50-99 ดาว)</option>
+            <option>Mythic (1-49 ดาว)</option>
+            <option>Legend</option>
+            <option>Epic</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-gray-300 mb-1">จำนวนฮีโร่</label>
+            <input type="number" placeholder="เช่น 120" required class="w-full bg-[#0B0E14] border border-[#2A3447] rounded-lg p-2.5 text-gray-200">
+          </div>
+          <div>
+            <label class="block text-gray-300 mb-1">จำนวนสกินทั้งหมด</label>
+            <input type="number" placeholder="เช่น 185" required class="w-full bg-[#0B0E14] border border-[#2A3447] rounded-lg p-2.5 text-gray-200">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-gray-300 mb-1">สกินแรร์เด่นๆ ในไอดี</label>
+          <input type="text" placeholder="เช่น Chou KOF, Gusion Legend, Franco Legend" class="w-full bg-[#0B0E14] border border-[#2A3447] rounded-lg p-2.5 text-gray-200">
+        </div>
+
+        <div>
+          <label class="block text-gray-300 mb-1">ราคาที่ต้องการขาย (บาท)</label>
+          <input type="number" placeholder="เช่น 2500" required class="w-full bg-[#0B0E14] border border-[#2A3447] rounded-lg p-2.5 text-gray-200">
+        </div>
+
+        <div>
+          <label class="block text-gray-300 mb-1">ช่องทางติดต่อของคุณ (Line ID หรือ Facebook)</label>
+          <input type="text" placeholder="Line ID หรือ ลิงก์ Facebook ของคุณ" required class="w-full bg-[#0B0E14] border border-[#2A3447] rounded-lg p-2.5 text-gray-200">
+        </div>
+
+        <div class="pt-2">
+          <button type="submit" class="w-full py-2.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-black font-bold text-sm transition">
+            ส่งข้อมูลให้แอดมินตรวจสอบ
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    // Authentic MLBB Heroes & Rare Skins Dataset
+    const MLBB_ACCOUNTS = [
+      {
+        id: "ML-9901",
+        heroName: "Chou",
+        skinName: "Iori Yagami",
+        tier: "KOF",
+        tierLabel: "KOF COLLAB",
+        tierClass: "tier-kof",
+        role: "Fighter",
+        roleIcon: "fa-hand-back-fist",
+        rank: "Immortal",
+        rankName: "Mythic Immortal 150★",
+        heroes: 128,
+        skins: 340,
+        winRate: "71.2%",
+        price: 3890,
+        originalPrice: 5900,
+        server: "เซิร์ฟเวอร์ไทย / เอเชีย",
+        emblems: "All Max LV.60 ครบทุกสาย",
+        coverImage: "images/chou_iori.jpg",
+        highlightSkins: [
+          { name: "Chou - Iori Yagami", tier: "KOF", color: "text-red-400" },
+          { name: "Gusion - Cosmic Gleam", tier: "Legend", color: "text-fuchsia-400" },
+          { name: "Granger - Agent Z", tier: "Collector", color: "text-amber-400" },
+          { name: "Ling - Serene Plume", tier: "Collector", color: "text-amber-400" }
+        ],
+        description: "สุดยอดไอดี Chou สกินระดับตำนาน The King of Fighters (Iori Yagami) เอฟเฟกต์ไฟม่วงแท้ พร้อมเสียงพากย์ภาษาญี่ปุ่นดั้งเดิม ปลดล็อกฮีโร่ครบ 128 ตัว เมล Moonton สะอาดจัด เปลี่ยนเมลได้ทันที รับประกัน 60 วัน"
+      },
+      {
+        id: "ML-8812",
+        heroName: "Gusion",
+        skinName: "Cosmic Gleam",
+        tier: "Legend",
+        tierLabel: "LEGEND",
+        tierClass: "tier-legend",
+        role: "Assassin",
+        roleIcon: "fa-bolt-lightning",
+        rank: "Glory",
+        rankName: "Mythical Glory 85★",
+        heroes: 122,
+        skins: 285,
+        winRate: "68.4%",
+        price: 3290,
+        originalPrice: 4800,
+        server: "เซิร์ฟเวอร์ไทย / เอเชีย",
+        emblems: "Assassin & Mage Max LV.60",
+        coverImage: "images/gusion_legend.jpg",
+        highlightSkins: [
+          { name: "Gusion - Cosmic Gleam", tier: "Legend", color: "text-fuchsia-400" },
+          { name: "Chou - Iori Yagami", tier: "KOF", color: "text-red-400" },
+          { name: "Lancelot - Pisces", tier: "Zodiac", color: "text-cyan-400" },
+          { name: "Hayabusa - Shadow of Obscurity", tier: "Epic", color: "text-blue-400" }
+        ],
+        description: "สกินระดับ Legend จากวงล้อเวทมนตร์ (Magic Wheel) มีโมเดลหุ่นยนต์ท่องอวกาศสุดหรู เอฟเฟกต์ปามีดดวงดาว แอนิเมชันวาร์ปกลับฐานเฉพาะตัว ปาคมคอมโบไว ไร้ประวัติแบน"
+      },
+      {
+        id: "ML-7723",
+        heroName: "Franco",
+        skinName: "King of Hell",
+        tier: "Legend",
+        tierLabel: "LEGEND",
+        tierClass: "tier-legend",
+        role: "Tank",
+        roleIcon: "fa-shield-halved",
+        rank: "Immortal",
+        rankName: "Mythic Immortal 112★",
+        heroes: 118,
+        skins: 230,
+        winRate: "65.0%",
+        price: 2990,
+        originalPrice: 4200,
+        server: "เซิร์ฟเวอร์ไทย / เอเชีย",
+        emblems: "Tank & Roam Max LV.60",
+        coverImage: "images/franco_legend.jpg",
+        highlightSkins: [
+          { name: "Franco - King of Hell", tier: "Legend", color: "text-fuchsia-400" },
+          { name: "Tigreal - Gold Baron", tier: "Special", color: "text-amber-400" },
+          { name: "Atlas - Space Mech", tier: "Elite", color: "text-blue-400" },
+          { name: "Khufra - Volcanic Overlord", tier: "Special", color: "text-orange-400" }
+        ],
+        description: "จ้าวแห่งนรก Franco สกิน Legend ตะขอปีศาจ ดึงโดนมีเอฟเฟกต์พญายมกระชากวิญญาณ อัลติเมตมีเงาร่างปีศาจยักษ์ปรากฏตัว สายโรมมิ่งห้ามพลาด ดึงคมข่มขวัญศัตรูทุกไฟต์"
+      },
+      {
+        id: "ML-6634",
+        heroName: "Beatrix",
+        skinName: "Stellar Brilliance",
+        tier: "Prime",
+        tierLabel: "PRIME M4",
+        tierClass: "tier-prime",
+        role: "Marksman",
+        roleIcon: "fa-crosshairs",
+        rank: "Glory",
+        rankName: "Mythical Glory 78★",
+        heroes: 110,
+        skins: 195,
+        winRate: "64.5%",
+        price: 2490,
+        originalPrice: 3600,
+        server: "เซิร์ฟเวอร์ไทย / เอเชีย",
+        emblems: "Marksman Max LV.60",
+        coverImage: "images/beatrix_prime.jpg",
+        highlightSkins: [
+          { name: "Beatrix - Stellar Brilliance", tier: "Prime", color: "text-yellow-400" },
+          { name: "Claude - Mecha Dragon", tier: "Epic", color: "text-purple-400" },
+          { name: "Wanwan - Flying Swallow", tier: "Collector", color: "text-amber-400" },
+          { name: "Brody - S.T.U.N", tier: "Limited", color: "text-cyan-400" }
+        ],
+        description: "สกินชิงแชมป์โลก M4 Prime สกินลิมิเต็ดทองคำระดับไฮเอนด์ เปลี่ยนรูปลักษณ์ปืนทั้ง 4 กระบอก พร้อมเอฟเฟกต์กระสุนประกายแสงสีทองสุดพรีเมียม สกินนี้ไม่สามารถสุ่มซื้อได้ทั่วไปในร้านค้าปกติ"
+      },
+      {
+        id: "ML-5545",
+        heroName: "Fanny",
+        skinName: "Blade of Kibou",
+        tier: "Aspirants",
+        tierLabel: "THE ASPIRANTS",
+        tierClass: "tier-aspirants",
+        role: "Assassin",
+        roleIcon: "fa-bolt-lightning",
+        rank: "Immortal",
+        rankName: "Mythic Immortal 105★",
+        heroes: 125,
+        skins: 260,
+        winRate: "69.7%",
+        price: 3450,
+        originalPrice: 4900,
+        server: "เซิร์ฟเวอร์ไทย / เอเชีย",
+        emblems: "Assassin Max LV.60",
+        coverImage: "images/fanny_aspirants.jpg",
+        highlightSkins: [
+          { name: "Fanny - Blade of Kibou", tier: "Aspirants", color: "text-cyan-300" },
+          { name: "Fanny - Skylark", tier: "Epic Limited", color: "text-pink-400" },
+          { name: "Ling - Dragon Boy", tier: "Collector", color: "text-amber-400" },
+          { name: "Lancelot - Floral Knight", tier: "Epic", color: "text-blue-400" }
+        ],
+        description: "สกินสายอนิเมะไซเบอร์พังก์สุดฮิต Fanny The Aspirants (Blade of Kibou) บินปล่อยสลิงเอฟเฟกต์นีออนสีฟ้า-ชมพู มีเสียงพากย์อนิเมะญี่ปุ่นแบบจัดเต็ม และโมเดล 3D แบบ Cel-shaded สวยงามที่สุดของเกม"
+      },
+      {
+        id: "ML-4456",
+        heroName: "Kagura",
+        skinName: "Soryu Maiden",
+        tier: "Collector",
+        tierLabel: "COLLECTOR",
+        tierClass: "tier-collector",
+        role: "Mage",
+        roleIcon: "fa-wand-magic-sparkles",
+        rank: "Glory",
+        rankName: "Mythical Glory 65★",
+        heroes: 105,
+        skins: 185,
+        winRate: "62.3%",
+        price: 1890,
+        originalPrice: 2800,
+        server: "เซิร์ฟเวอร์ไทย / เอเชีย",
+        emblems: "Mage Max LV.60",
+        coverImage: "images/kagura_collector.jpg",
+        highlightSkins: [
+          { name: "Kagura - Soryu Maiden", tier: "Collector", color: "text-amber-300" },
+          { name: "Guinevere - Psion Bite", tier: "Legend", color: "text-fuchsia-400" },
+          { name: "Lunox - Dawn Revelation", tier: "Epic", color: "text-purple-400" },
+          { name: "Nana - Aqua Puring", tier: "Collector", color: "text-amber-300" }
+        ],
+        description: "มังกรวารี Kagura Soryu Maiden ร่มกางมังกรน้ำเอฟเฟกต์ตระการตา สีฟ้าครามประกายทอง ร่ายรำคอมโบสวยงาม สายเมจที่ชอบความหรูหราต้องมีติดคลังไอดี"
+      },
+      {
+        id: "ML-3367",
+        heroName: "Hayabusa",
+        skinName: "Shura",
+        tier: "11.11",
+        tierLabel: "11.11 EXCLUSIVE",
+        tierClass: "tier-1111",
+        role: "Assassin",
+        roleIcon: "fa-bolt-lightning",
+        rank: "Mythic",
+        rankName: "Mythic 45★",
+        heroes: 95,
+        skins: 160,
+        winRate: "63.8%",
+        price: 1750,
+        originalPrice: 2500,
+        server: "เซิร์ฟเวอร์ไทย / เอเชีย",
+        emblems: "Assassin Max LV.60",
+        coverImage: "images/hayabusa_shura.jpg",
+        highlightSkins: [
+          { name: "Hayabusa - Shura", tier: "11.11", color: "text-rose-400" },
+          { name: "Gusion - Dimension Walker", tier: "11.11", color: "text-rose-400" },
+          { name: "Kagura - Water Lily", tier: "Starlight", color: "text-blue-300" },
+          { name: "Hanabi - Rakshesha", tier: "Collector", color: "text-amber-300" }
+        ],
+        description: "นินจาซามูไรเพลิง Shura สกินมหกรรม 11.11 สกินที่แฟนๆ ฮายาบัสะยกให้เท่ที่สุด เงาวาร์ป 4 ทิศเป็นเปลวเพลิงสีแดง-ดำ อัลติเมตฟันพริบตารวดเร็ว เมลสะอาดพร้อมเปลี่ยนเจ้าของ"
+      },
+      {
+        id: "ML-2278",
+        heroName: "Granger",
+        skinName: "Starfall Knight",
+        tier: "Legend",
+        tierLabel: "LEGEND",
+        tierClass: "tier-legend",
+        role: "Marksman",
+        roleIcon: "fa-crosshairs",
+        rank: "Glory",
+        rankName: "Mythical Glory 70★",
+        heroes: 114,
+        skins: 220,
+        winRate: "66.1%",
+        price: 2890,
+        originalPrice: 4100,
+        server: "เซิร์ฟเวอร์ไทย / เอเชีย",
+        emblems: "Marksman & Assassin Max LV.60",
+        coverImage: "images/granger_legend.jpg",
+        highlightSkins: [
+          { name: "Granger - Starfall Knight", tier: "Legend", color: "text-fuchsia-400" },
+          { name: "Granger - Agent Z", tier: "Collector", color: "text-amber-300" },
+          { name: "Bruno - Firefly", tier: "Special", color: "text-yellow-300" },
+          { name: "Clint - Shadow Ops", tier: "Epic", color: "text-blue-300" }
+        ],
+        description: "อัศวินดวงดาว Granger Starfall Knight สกิน Legend เกราะอวกาศ มีท่าแปลงร่างเป็นยานขับไล่สุดอลังการขณะวิ่ง ยิงแคนนอนกระสุนดาวตก อานุภาพทำลายล้างสูง เมลสะอาด 100%"
+      }
+    ];
+
+    let currentSkinFilter = 'all';
+    let currentRoleFilter = 'all';
+    let selectedAccountForCheckout = null;
+
+    // Render Character Grid
+    function renderAccounts(accounts) {
+      const grid = document.getElementById('accountsGrid');
+      const emptyState = document.getElementById('emptyState');
+      
+      if (accounts.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+      
+      emptyState.classList.add('hidden');
+      grid.innerHTML = accounts.map(acc => {
+        let rankBadgeClass = 'badge-mythic';
+        if (acc.rank === 'Immortal') rankBadgeClass = 'badge-immortal';
+        else if (acc.rank === 'Glory') rankBadgeClass = 'badge-glory';
+        else if (acc.rank === 'Legend') rankBadgeClass = 'badge-legend';
+
+        return `
+          <div class="bg-[#141923] border border-[#242F42] hover:border-amber-400/60 rounded-2xl overflow-hidden shadow-xl transition-all duration-300 flex flex-col group neon-border">
+            
+            <!-- Character Image & Badges -->
+            <div class="relative h-48 overflow-hidden bg-gray-950 cursor-pointer" onclick="openDetailModalById('${acc.id}')">
+              <img src="${acc.coverImage}" 
+                   alt="${acc.heroName} - ${acc.skinName}" 
+                   referrerpolicy="no-referrer"
+                   class="w-full h-full object-cover group-hover:scale-108 transition duration-500 brightness-95">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#141923] via-transparent to-black/30"></div>
+              
+              <!-- ID Badge -->
+              <span class="absolute top-2.5 left-2.5 bg-black/75 backdrop-blur-md text-amber-400 font-mono text-[10px] px-2 py-0.5 rounded border border-amber-500/30">
+                #${acc.id}
+              </span>
+
+              <!-- Skin Rarity Tier Tag (Official MLBB In-Game Style) -->
+              <span class="absolute top-2.5 right-2.5 ${acc.tierClass} text-white font-black text-[10px] px-2.5 py-0.5 rounded-md tracking-wider flex items-center gap-1">
+                ${acc.tierLabel}
+              </span>
+
+              <!-- Role & Rank Bottom Badges -->
+              <div class="absolute bottom-2 left-2.5 flex items-center gap-1.5 text-[10px]">
+                <span class="${rankBadgeClass} text-white font-bold px-2 py-0.5 rounded shadow">
+                  ${acc.rankName}
+                </span>
+                <span class="bg-black/70 text-gray-300 px-2 py-0.5 rounded backdrop-blur-sm border border-gray-700/50">
+                  <i class="fa-solid ${acc.roleIcon} mr-1 text-amber-400"></i>${acc.role}
+                </span>
+              </div>
+            </div>
+
+            <!-- Card Information Body -->
+            <div class="p-4 flex-1 flex flex-col justify-between space-y-3">
+              <div>
+                <!-- Hero & Skin Title -->
+                <div class="cursor-pointer" onclick="openDetailModalById('${acc.id}')">
+                  <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wide flex items-center gap-1.5">
+                    <span>${acc.heroName}</span>
+                    <span class="text-gray-600">•</span>
+                    <span class="text-amber-400/90">${acc.role}</span>
+                  </div>
+                  <h4 class="text-base font-black text-white group-hover:text-amber-400 transition leading-tight mt-0.5">
+                    ${acc.skinName}
+                  </h4>
+                </div>
+                
+                <!-- Highlight Skins List -->
+                <div class="mt-2.5 space-y-1">
+                  <div class="text-[10px] text-gray-400 font-medium">สกินเด่นในไอดี:</div>
+                  <div class="flex flex-wrap gap-1">
+                    ${acc.highlightSkins.slice(0, 2).map(s => `
+                      <span class="text-[10px] bg-[#0E131C] ${s.color} px-2 py-0.5 rounded border border-[#232D3F]">
+                        ★ ${s.name}
+                      </span>
+                    `).join('')}
+                  </div>
+                </div>
+
+                <!-- Specs mini-row -->
+                <div class="mt-3 grid grid-cols-2 gap-1.5 py-1.5 px-2 bg-[#0C1017] rounded-lg border border-[#1E2738] text-[10px] text-gray-300">
+                  <div class="flex items-center gap-1">
+                    <i class="fa-solid fa-users text-amber-400 text-[9px]"></i>
+                    <span>ฮีโร่: <b>${acc.heroes} ตัว</b></span>
+                  </div>
+                  <div class="flex items-center gap-1 justify-end">
+                    <i class="fa-solid fa-shirt text-purple-400 text-[9px]"></i>
+                    <span>สกิน: <b>${acc.skins} สกิน</b></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Price & Purchase Action -->
+              <div class="pt-2 border-t border-[#202738] flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-gray-500 line-through">฿${acc.originalPrice.toLocaleString()}</span>
+                  <div class="text-lg font-black text-amber-400 leading-none">฿${acc.price.toLocaleString()}</div>
+                </div>
+
+                <div class="flex items-center gap-1.5">
+                  <button onclick="openDetailModalById('${acc.id}')" title="ดูรูปสกรีนช็อตและรายละเอียด" class="w-8 h-8 rounded-lg bg-[#202838] hover:bg-[#2A354A] text-gray-300 hover:text-white flex items-center justify-center text-xs transition">
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                  <button onclick="openCheckoutModalById('${acc.id}')" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black font-extrabold text-xs shadow-md transition transform active:scale-95">
+                    สั่งซื้อเลย
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Filter Logic
+    function applyFilters() {
+      const search = document.getElementById('searchInput').value.toLowerCase().trim();
+      const sort = document.getElementById('sortSelect').value;
+
+      let filtered = MLBB_ACCOUNTS.filter(acc => {
+        const matchesSkinTier = currentSkinFilter === 'all' || acc.tier.toLowerCase() === currentSkinFilter.toLowerCase();
+        const matchesRole = currentRoleFilter === 'all' || acc.role.toLowerCase() === currentRoleFilter.toLowerCase();
+        
+        const matchesSearch = 
+          acc.heroName.toLowerCase().includes(search) ||
+          acc.skinName.toLowerCase().includes(search) ||
+          acc.id.toLowerCase().includes(search) ||
+          acc.role.toLowerCase().includes(search) ||
+          acc.highlightSkins.some(s => s.name.toLowerCase().includes(search));
+
+        return matchesSkinTier && matchesRole && matchesSearch;
+      });
+
+      // Sorting
+      if (sort === 'price-asc') {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sort === 'price-desc') {
+        filtered.sort((a, b) => b.price - a.price);
+      } else if (sort === 'skins-desc') {
+        filtered.sort((a, b) => b.skins - a.skins);
+      }
+
+      renderAccounts(filtered);
+    }
+
+    function setSkinFilter(tier, btnElement) {
+      currentSkinFilter = tier;
+      document.querySelectorAll('.skin-tier-btn').forEach(b => {
+        b.className = 'skin-tier-btn px-3 py-1.5 rounded-lg bg-[#1E2638] text-gray-300 hover:text-white transition';
+      });
+      if (btnElement) {
+        btnElement.className = 'skin-tier-btn px-3 py-1.5 rounded-lg bg-amber-500 text-black font-bold transition';
+      }
+      applyFilters();
+    }
+
+    function setRoleFilter(role, btnElement) {
+      currentRoleFilter = role;
+      document.querySelectorAll('.role-btn').forEach(b => {
+        b.className = 'role-btn px-2.5 py-1 rounded bg-[#10141D] text-gray-400 hover:text-white';
+      });
+      if (btnElement) {
+        btnElement.className = 'role-btn px-2.5 py-1 rounded bg-[#1F2737] text-amber-400 font-semibold';
+      }
+      applyFilters();
+    }
+
+    function resetFilters() {
+      document.getElementById('searchInput').value = '';
+      currentSkinFilter = 'all';
+      currentRoleFilter = 'all';
+      document.getElementById('sortSelect').value = 'featured';
+      
+      document.querySelectorAll('.skin-tier-btn').forEach(b => {
+        b.className = 'skin-tier-btn px-3 py-1.5 rounded-lg bg-[#1E2638] text-gray-300 hover:text-white transition';
+      });
+      const firstSkinBtn = document.querySelector('.skin-tier-btn');
+      if (firstSkinBtn) firstSkinBtn.className = 'skin-tier-btn px-3 py-1.5 rounded-lg bg-amber-500 text-black font-bold transition';
+
+      renderAccounts(MLBB_ACCOUNTS);
+    }
+
+    // Modal Details Control
+    function openDetailModalById(id) {
+      const acc = MLBB_ACCOUNTS.find(a => a.id === id);
+      if (!acc) return;
+      
+      const modal = document.getElementById('detailModal');
+      const body = document.getElementById('modalBody');
+
+      body.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-2">
+          
+          <!-- Character Splash Art Preview -->
+          <div class="p-4 sm:p-6 bg-[#0E131C] border-b md:border-b-0 md:border-r border-[#222B3D] space-y-3">
+            <div class="h-64 rounded-xl overflow-hidden bg-black border border-[#2A3447] relative">
+              <img id="mainGalleryImage" src="${acc.coverImage}" class="w-full h-full object-cover">
+              
+              <div class="absolute top-3 left-3 ${acc.tierClass} text-white font-black text-xs px-2.5 py-0.5 rounded shadow">
+                ${acc.tierLabel}
+              </div>
+              <div class="absolute bottom-2 right-2 bg-black/80 px-2 py-0.5 rounded text-[11px] text-amber-400 font-mono">
+                ${acc.rankName}
+              </div>
+            </div>
+
+            <!-- In-Game Status Summary -->
+            <div class="p-3 bg-[#151A24] rounded-xl border border-[#232C3D] text-xs space-y-1.5 text-gray-300">
+              <div class="flex justify-between"><span class="text-gray-400">สถานะไอดี:</span> <span class="text-emerald-400 font-bold">● พร้อมส่งมอบทันที</span></div>
+              <div class="flex justify-between"><span class="text-gray-400">เซิร์ฟเวอร์:</span> <span>${acc.server}</span></div>
+              <div class="flex justify-between"><span class="text-gray-400">ความสะอาดเมล:</span> <span class="text-white font-medium">Moonton สะอาด (เปลี่ยนเมลได้ 100%)</span></div>
+              <div class="flex justify-between"><span class="text-gray-400">ระดับตราสัญลักษณ์:</span> <span class="text-cyan-400 font-bold">${acc.emblems}</span></div>
+              <div class="flex justify-between"><span class="text-gray-400">การรับประกัน:</span> <span class="text-amber-400 font-bold">60 วัน เคลมหรือคืนเงิน 100%</span></div>
+            </div>
+          </div>
+
+          <!-- Account Specs & Purchase Action -->
+          <div class="p-6 space-y-4 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-amber-400 font-mono">รหัสสินค้า #${acc.id}</span>
+                <span class="text-xs bg-[#1F2737] px-2 py-0.5 rounded text-gray-300 font-semibold"><i class="fa-solid ${acc.roleIcon} mr-1 text-amber-400"></i>${acc.role}</span>
+              </div>
+              
+              <div>
+                <span class="text-xs text-gray-400 font-bold uppercase">${acc.heroName}</span>
+                <h2 class="text-2xl font-black text-white">${acc.skinName}</h2>
+              </div>
+
+              <!-- Quick stats -->
+              <div class="grid grid-cols-3 gap-2 text-xs pt-1">
+                <div class="bg-[#0B0E14] p-2 rounded-lg border border-[#222B3D] text-center">
+                  <span class="text-gray-400 block text-[10px]">ฮีโร่</span>
+                  <span class="font-bold text-white text-sm">${acc.heroes} ตัว</span>
+                </div>
+                <div class="bg-[#0B0E14] p-2 rounded-lg border border-[#222B3D] text-center">
+                  <span class="text-gray-400 block text-[10px]">สกิน</span>
+                  <span class="font-bold text-amber-400 text-sm">${acc.skins} สกิน</span>
+                </div>
+                <div class="bg-[#0B0E14] p-2 rounded-lg border border-[#222B3D] text-center">
+                  <span class="text-gray-400 block text-[10px]">Win Rate</span>
+                  <span class="font-bold text-emerald-400 text-sm">${acc.winRate}</span>
+                </div>
+              </div>
+
+              <!-- Highlight skins in account -->
+              <div>
+                <span class="text-xs font-semibold text-gray-300 block mb-1">สกินแรร์ทั้งหมดในคลังไอดีนี้:</span>
+                <div class="space-y-1">
+                  ${acc.highlightSkins.map(s => `
+                    <div class="text-xs text-gray-300 flex items-center justify-between bg-[#0F141E] px-2.5 py-1.5 rounded border border-[#232C3D]">
+                      <span class="flex items-center gap-1.5">
+                        <i class="fa-solid fa-gem ${s.color} text-[10px]"></i>
+                        <b class="text-white">${s.name}</b>
+                      </span>
+                      <span class="text-[10px] ${s.color} font-mono uppercase bg-[#18202D] px-1.5 py-0.5 rounded">${s.tier}</span>
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+
+              <p class="text-xs text-gray-400 leading-relaxed pt-1">
+                ${acc.description}
+              </p>
+            </div>
+
+            <!-- Price & Button -->
+            <div class="pt-4 border-t border-[#232C3D] flex items-center justify-between">
+              <div>
+                <span class="text-xs text-gray-500 line-through">฿${acc.originalPrice.toLocaleString()}</span>
+                <div class="text-2xl font-black text-amber-400">฿${acc.price.toLocaleString()}</div>
+              </div>
+              <button onclick="openCheckoutModalById('${acc.id}')" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-600 hover:to-yellow-600 text-black font-extrabold text-sm shadow-lg transition">
+                <i class="fa-solid fa-lock mr-1"></i> ดำเนินการชำระเงิน
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeDetailModal() {
+      document.getElementById('detailModal').classList.add('hidden');
+    }
+
+    function openCheckoutModalById(id) {
+      closeDetailModal();
+      const acc = MLBB_ACCOUNTS.find(a => a.id === id);
+      if (!acc) return;
+      selectedAccountForCheckout = acc;
+
+      document.getElementById('checkoutCodeText').textContent = `รหัสสินค้า: #${acc.id} (${acc.heroName} - ${acc.skinName})`;
+      document.getElementById('checkoutPriceText').textContent = `฿${acc.price.toLocaleString()}`;
+      document.getElementById('checkoutModal').classList.remove('hidden');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('checkoutModal').classList.add('hidden');
+    }
+
+    function simulateSuccessfulPayment() {
+      closeCheckoutModal();
+      const successModal = document.getElementById('successModal');
+      if (selectedAccountForCheckout) {
+        document.getElementById('credEmail').textContent = `mlbb.${selectedAccountForCheckout.heroName.toLowerCase()}_${selectedAccountForCheckout.id.toLowerCase()}@mailsafe.net`;
+        document.getElementById('credPass').textContent = `ML#${selectedAccountForCheckout.heroName}2026!`;
+      }
+      successModal.classList.remove('hidden');
+    }
+
+    function closeSuccessModal() {
+      document.getElementById('successModal').classList.add('hidden');
+    }
+
+    function copyText(elementId) {
+      const text = document.getElementById(elementId).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('คัดลอกข้อมูลเรียบร้อยแล้ว: ' + text);
+      });
+    }
+
+    function openSellModal() {
+      document.getElementById('sellModal').classList.remove('hidden');
+    }
+
+    function closeSellModal() {
+      document.getElementById('sellModal').classList.add('hidden');
+    }
+
+    function handleSellSubmit(e) {
+      e.preventDefault();
+      alert('ส่งข้อมูลไอดีฝากขายเรียบร้อย! แอดมินจะติดต่อกลับผ่านช่องทางที่คุณระบุภายใน 1-2 ชั่วโมง');
+      closeSellModal();
+    }
+
+    function scrollToStore() {
+      document.getElementById('store').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderAccounts(MLBB_ACCOUNTS);
+    });
+  </script>
 </body>
 </html>
